@@ -1,0 +1,115 @@
+{
+    "actions": {
+        "acqdatetime": {
+            "filters": {}, 
+            "params": {}
+        }, 
+        "dailyqc": {
+            "filters": {}, 
+            "params": {
+                "channel": "avg", 
+                "ocr_regions": {
+                    "TestName": {
+                        "prefix": "TestName", 
+                        "type": "string", 
+                        "xywh": "12;71;200;20"
+                    },
+                    "PageName": {
+                        "prefix": "PageName", 
+                        "type": "string", 
+                        "xywh": "220;492;100;18"
+                    },
+                    "QuaNoise1": {
+                        "prefix": "Br40f_110kV_122mA", 
+                        "type": "float", 
+                        "xywh": "63;132;25;13",
+                        "colspace": 50
+                    },
+                    "QuaNoise2": {
+                        "prefix": "Hr40f_120kV_200mA", 
+                        "type": "float", 
+                        "xywh": "63;188;25;13",
+                        "rowspace": 50
+                    },
+                    "QuaNoise3": {
+                        "prefix": "Hr40f_110kV_95mA", 
+                        "type": "float", 
+                        "xywh": "63;242;25;13",
+                        "rowspace": 50
+                    },
+                    "QuaNoise4": {
+                        "prefix": "Br40f_120kV_216mA", 
+                        "type": "float", 
+                        "xywh": "63;299;25;13",
+                        "rowspace": 50
+                    }
+		    ,
+                    "HomA1": {
+                        "prefix": "Br40f_110kV_122mA", 
+                        "type": "float", 
+                        "xywh": "63;132;25;13",
+                        "colspace": 50
+                    },
+                    "HomA2": {
+                        "prefix": "Hr40f_120kV_200mA", 
+                        "type": "float", 
+                        "xywh": "63;188;25;13",
+                        "rowspace": 50
+                    },
+                    "HomA3": {
+                        "prefix": "Hr40f_110kV_95mA", 
+                        "type": "float", 
+                        "xywh": "63;242;25;13",
+                        "rowspace": 50
+                    },
+                    "HomA4": {
+                        "prefix": "Br40f_120kV_216mA", 
+                        "type": "float", 
+                        "xywh": "63;299;25;13",
+                        "rowspace": 50
+                    }
+                }, 
+                "slicenr": -1
+            }
+        }
+    }, 
+    "cfgformat": "20180910", 
+    "comments": {
+        "author": "Dennis Dickerscheid, ASZ", 
+        "creator": " ", 
+        "description": "OCR/Generic for Siemens CT QC", 
+        "usage": [
+            "  \"OCR_xxx:prefix\": \"mm\" # text in bounding box of OCR_xxx starts with this and this should be stripped", 
+            "  \"OCR_xxx:suffix\": \"mm\" # text in bounding box of OCR_xxx ends with this and this should be stripped", 
+            "\n"
+        ], 
+        "version": "20180209"
+    }, 
+    "info": {
+        "acqdatetime": {
+            "params": {}
+        }, 
+        "qc_series": {
+            "params": {
+                "channel": "which channel to take for multi-channel data; either an integer or 'avg', or 'rgb' (avg)", 
+                "ocr_regions": {
+                    "Detector": {
+                        "prefix": "text in box starts with this and this should be stripped", 
+                        "type": "result should be interpreted as variable of this type", 
+                        "xywh": "x0;y0;width;height of bounding box"
+                    }, 
+                    "Integral": {
+                        "suffix": "text in box ends with this and this should be stripped", 
+                        "type": "result should be interpreted as variable of this type", 
+                        "xywh": "x0;y0;width;height of bounding box"
+                    }, 
+                    "Label": {
+                        "type": "result should be interpreted as variable of this type", 
+                        "xywh": "x0;y0;width;height of bounding box"
+                    }
+                }, 
+                "slicenr": "which slice to analyse if enhanced dicom is used (-1)"
+            }
+        }
+    }
+}
