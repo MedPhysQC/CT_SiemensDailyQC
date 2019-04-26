@@ -35,8 +35,15 @@ import sys,os
 import dicom, getopt
 from dicom import tag
 import numpy as np
-import tempfile
-os.environ['MPLCONFIGDIR'] = tempfile.mkdtemp()
+if not 'MPLCONFIGDIR' in os.environ:
+    import pkg_resources
+    try:
+        #only for matplotlib < 3 should we use the tmp work around, but it should be applied before importing matplotlib
+        matplotlib_version = [int(v) for v in pkg_resources.get_distribution("matplotlib").version.split('.')]
+        if matplotlib_version[0]<3:
+            os.environ['MPLCONFIGDIR'] = "/tmp/.matplotlib" # if this folder already exists it must be accessible by the owner of WAD_Processor 
+    except:
+        os.environ['MPLCONFIGDIR'] = "/tmp/.matplotlib" # if this folder already exists it must be accessible by the owner of WAD_Processor 
 
 import matplotlib
 matplotlib.use('Agg')
